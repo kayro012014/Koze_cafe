@@ -126,11 +126,14 @@
                                 all while spending time with our friendly resident cats.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12 col-12">
-                        <div class="cat-img">
-                            <img src="assets/pictures/koze_cat.jpg" alt="About" class="img-fluid">
-                        </div>
-                    </div>
+            <div class="col-lg-4 col-md-12 col-12">
+                <div class="cat-img">
+                    <img src="assets/pictures/koze_cat.jpg" id="cat1"  alt="About" class="img-fluid " >
+                    <img src="assets/pictures/koze_cat2.jpg" id="cat2" alt="About" class="img-fluid " >
+                    <img src="assets/pictures/koze_cat3.jpg" id="cat3" alt="About" class="img-fluid " >
+                </div>
+            </div>
+
                 </div>
             </div>
         </section>

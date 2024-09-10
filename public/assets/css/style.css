@@ -147,7 +147,6 @@ body {
 
 .custom-card-width {
     max-width: 300px;
-    /* Adjust the width as needed */
 }
 
 /* Responsive css */
@@ -207,33 +206,66 @@ body {
 
     .carousel-inner {
         transform: translateY(-20px);
-        /* Adjust the value as needed for mobile view */
     }
 
     .carousel-item {
         height: calc(100vh - 20px);
-        /* Adjust accordingly for mobile */
         min-height: 250px;
     }
 }
 
 .about-text p {
     text-align: justify;
-    /* Optional: add some spacing for better readability */
     margin-bottom: 1.5rem;
 }
 
 .cat-img {
+    position: relative;
     width: 100%;
-    /* or a specific width like 300px */
     height: auto;
-    /* Maintains aspect ratio */
-    padding-top: 50px;
+}
+
+.cat-img img {
+    position: absolute;
+    border: 8px solid purple;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+#cat1 {
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+}
+
+#cat2 {
+    left: 90px;
+    top: 50px;
+    width: 150px;
+    height: 150px;
+    z-index: 2;
+}
+
+#cat3 {
+    left: 180px;
+    top: 30px;
+    width: 150px;
+    height: 150px;
+    bottom: 200px;
+    z-index: 3;
+}
+
+
+
+.cat-img img:hover {
+    z-index: 10;
+    transform: scale(1.2) rotate(7deg) translateY(-10px);
 }
 
 .section-header p,
 h2 {
     text-align: justify;
-    /* Optional: add some spacing for better readability */
     margin-bottom: 1.5rem;
 }
