@@ -1,0 +1,169 @@
+/* Custom Navbar Style with 40% Opacity */
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background: rgb(241, 208, 241);
+}
+
+.navbar-toggler {
+    z-index: 1050;
+    /* Make sure it’s above other content */
+}
+
+.navbar-collapse {
+    transition: all 0.3s ease;
+}
+
+.navbar-light-violet {
+    background-color: rgba(161, 111, 197, 0.4);
+    /* Light Violet with 40% opacity */
+    color: white;
+    /* Ensure text is readable */
+}
+
+.navbar-light-violet .navbar-brand,
+.navbar-light-violet .nav-link {
+    color: #ffffff;
+    /* White font color for contrast */
+}
+
+.navbar-light-violet .nav-link:hover {
+    color: #ffd700;
+    /* Optional: Gold color on hover */
+}
+
+/* Adjusting Navbar Toggle Button Icon Color */
+.navbar-light-violet .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path fill="%23ffffff" d="M5 6h20v2H5zm0 8h20v2H5zm0 8h20v2H5z"/></svg>');
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Adjust the color and opacity here */
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.section-padding {
+    padding: 30px 0;
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 300px;
+}
+
+.carousel-caption {
+    bottom: 220px;
+}
+
+.carousel-caption h5 {
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
+}
+
+.carousel-caption p {
+    width: 60%;
+    margin: auto;
+    font-size: 14px;
+    /* Adjusted for readability */
+    line-height: 1.9;
+}
+
+.carousel-inner::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.navbar-nav a{
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.navbar-lig .navbar-brand{
+    color: #000;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover{
+    color: #000;
+}
+.navbar-light .navbar-nav .navbar-link{
+    color: #000;
+
+}
+.w-100{
+    height: 100vh;
+}
+
+.services .card-body i{
+    font-size: 50px;
+}
+
+.custom-card-width {
+    max-width: 300px;
+    /* Adjust the width as needed */
+}
+
+/* Responsive css */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .carousel-caption{
+        bottom: 370px;
+    }
+    .carousel-caption p{
+        width: 100%;
+    }
+    
+    .card{
+        margin-bottom: 30px;
+    }
+    .img-area img{
+        width: 100%;
+    }
+}
+
+@media only screen and  (max-widht: 767px){
+    .navbar-nav{
+        text-align: center;
+    }
+    .carousel-caption{
+        bottom: 125px;
+    }
+    .carousel-caption h5{
+        font-size: 17px;
+    }
+    .carousel-caption a{
+        padding: 10px 15px;
+    }
+    .carousel-caption p{
+        width: 100%;
+        line-height: 1.6;
+        font-size: 12px;
+    }
+    .about-text{
+        padding-top: 50px;
+    }
+    .card{
+        margin-bottom: 30px;
+    }
+}
+
+.about-text p {
+    text-align: justify;
+    /* Optional: add some spacing for better readability */
+    margin-bottom: 1.5rem;
+}
