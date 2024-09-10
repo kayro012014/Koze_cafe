@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{ asset('assets/pictures/images.png') }}" type="png">
     <title>Koze Cafe</title>
 
     <!-- Fonts -->
@@ -13,7 +13,6 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
-    
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 </head>
 <body>
@@ -27,19 +26,19 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 " >
                     <li class="nav-item">
-                        <a class="nav-link" href="#carouselExampleCaptions">HOME</a>
+                        <a class="nav-link px-lg-3" href="#carouselExampleCaptions">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#aboutus">ABOUT US</a>
+                        <a class="nav-link px-lg-3" href="#aboutus">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#amenities">AMENITIES</a>
+                        <a class="nav-link px-lg-3" href="#amenities">AMENITIES</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#contactus">CONTACT US</a>
+                        <a class="nav-link px-lg-3" href="#contactus">CONTACT US</a>
                     </li>
                 </ul>
             </div>
@@ -135,21 +134,31 @@
                 </div>
             </div>
         </section>
+        <section>
+            <div class="container">
+                <div class="row">
 
-
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-8 col-lg-4 d-flex justify-content-center">
-                        <div class="card text-white text-center bg-dark pb-2 custom-card-width">
-                            <div class="card-body">
-                                <h3 class="card-title">FREE WIFI</h3>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-wifi" viewBox="0 0 16 16">
-                                    <path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.52.52 0 0 0 .668.05A11.45 11.45 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049"/>
-                                    <path d="M13.229 8.271a.482.482 0 0 0-.063-.745A9.46 9.46 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065m-2.183 2.183c.226-.226.185-.605-.1-.75A6.5 6.5 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.5 5.5 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091zM9.06 12.44c.196-.196.198-.52-.04-.66A2 2 0 0 0 8 11.5a2 2 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .707 0l.707-.707z"/>
-                                </svg>
-                                <p class="lead">Enjoy seamless connectivity with our complimentary high-speed Wi-Fi, perfect for staying connected or getting work done while you relax.</p>
-                            </div>
-                        </div>
+                <div class="col-lg-2 col-md-2 text-center bg-purple rounded shadow py-4 my-3 mx-4 ms-2 ">
+                                <img src="assets/pictures/wifi-solid.svg" width="50px">
+                                <h5 class="mt-3">WIFI</h5>
                     </div>
+                    <div class="col-lg-2 col-md-2 text-center bg-purple rounded shadow py-4 my-3 mx-4 ms-4">
+                                <img src="assets/pictures/aircon.svg" width="50px">
+                                <h5 class="mt-3">Air Conditioned</h5>
+                    </div>
+                    <div class="col-lg-2 col-md-2 text-center bg-purple rounded shadow py-4 my-3 mx-3 ms-4">
+                                <img src="assets/pictures/paw.svg" width="50px">
+                                <h5 class="mt-3">Cats</h5>
+                    </div>
+                    <div class="col-lg-2 col-md-2 text-center bg-purple rounded shadow py-4 my-3 mx-4 ms-4">
+                                <img src="assets/pictures/speaker.svg" width="50px">
+                                <h5 class="mt-3">Music</h5>
+                    </div>
+                    <div class="col-lg-2 col-md-2 text-center bg-purple rounded shadow py-4 my-3 mx-4 ms-4">
+                                <img src="assets/pictures/book.svg" width="50px">
+                                <h5 class="mt-3">Books</h5>
+                    </div>
+                    
                 </div>
             </div>
         </section>
