@@ -9,7 +9,26 @@ body {
 
 .navbar-toggler {
     z-index: 1050;
-    /* Make sure it’s above other content */
+    /* Ensure it's above other content */
+    border: none;
+    /* Remove the default border */
+    background: none;
+    /* Remove default background */
+    padding: 5px;
+    /* Adjust padding for better click area */
+    font-size: 30px;
+}
+
+.navbar-toggler .material-symbols-outlined {
+    font-size: 30px;
+    /* Adjust the size of the icon */
+    color: white;
+    /* Change the color to match your design */
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    /* Remove the focus outline */
 }
 
 .navbar-collapse {
@@ -35,8 +54,9 @@ body {
 }
 
 /* Adjusting Navbar Toggle Button Icon Color */
-.navbar-light-violet .navbar-toggler-icon {
+.navbar-light-violet .material-symbols-outlined {
     background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path fill="%23ffffff" d="M5 6h20v2H5zm0 8h20v2H5zm0 8h20v2H5z"/></svg>');
+    color: rgb(0, 0, 0);
 }
 
 .carousel-caption {
@@ -74,22 +94,28 @@ body {
     line-height: 1.9;
 }
 
+.carousel-inner {
+    transform: translateY(-90px);
+    /* Adjust the value as needed */
+}
+
 .carousel-inner::before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 50%;
     top: 0;
     left: 0;
     z-index: 1;
 }
 
-.navbar-nav a{
+.navbar-nav a {
     font-size: 15px;
     text-transform: uppercase;
     font-weight: 500;
 }
-.navbar-lig .navbar-brand{
+
+.navbar-lig .navbar-brand {
     color: #000;
     font-size: 25px;
     text-transform: uppercase;
@@ -98,18 +124,20 @@ body {
 }
 
 .navbar-light .navbar-brand:focus,
-.navbar-light .navbar-brand:hover{
+.navbar-light .navbar-brand:hover {
     color: #000;
 }
-.navbar-light .navbar-nav .navbar-link{
+
+.navbar-light .navbar-nav .navbar-link {
     color: #000;
 
 }
-.w-100{
+
+.w-100 {
     height: 100vh;
 }
 
-.services .card-body i{
+.services .card-body i {
     font-size: 50px;
 }
 
@@ -121,48 +149,80 @@ body {
 /* Responsive css */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .carousel-caption{
+    .carousel-caption {
         bottom: 370px;
     }
-    .carousel-caption p{
+
+    .carousel-caption p {
         width: 100%;
     }
-    
-    .card{
+
+    .card {
         margin-bottom: 30px;
     }
-    .img-area img{
+
+    .img-area img {
         width: 100%;
+    }
+
+    .navbar-nav {
+        text-align: center;
     }
 }
 
-@media only screen and  (max-widht: 767px){
-    .navbar-nav{
+@media only screen and (max-width: 767px) {
+    .navbar-nav {
         text-align: center;
     }
-    .carousel-caption{
+
+    .carousel-caption {
         bottom: 125px;
     }
-    .carousel-caption h5{
+
+    .carousel-caption h5 {
         font-size: 17px;
     }
-    .carousel-caption a{
+
+    .carousel-caption a {
         padding: 10px 15px;
     }
-    .carousel-caption p{
+
+    .carousel-caption p {
         width: 100%;
         line-height: 1.6;
         font-size: 12px;
     }
-    .about-text{
+
+    .about-text {
         padding-top: 50px;
     }
-    .card{
+
+    .card {
         margin-bottom: 30px;
+    }
+
+    .carousel-inner {
+        transform: translateY(-10px);
+        /* Adjust the value as needed */
     }
 }
 
 .about-text p {
+    text-align: justify;
+    /* Optional: add some spacing for better readability */
+    margin-bottom: 1.5rem;
+}
+
+.cat-img {
+    width: 100%;
+    /* or a specific width like 300px */
+    height: auto;
+    /* Maintains aspect ratio */
+    padding-top: 50px;
+}
+
+.section-header p,
+h2 {
     text-align: justify;
     /* Optional: add some spacing for better readability */
     margin-bottom: 1.5rem;
