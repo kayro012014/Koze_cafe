@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 </head>
 <body>
@@ -167,19 +168,48 @@
         </section>
 
       <!--- Contact -->
-      <section id="contactus" class="contact section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-header text-center pb-5">
-                        <h2>Contact Us</h2>
-                        <p>Feel free to reach us at <b>0905 469 3991</b> for any inquiries, or email us at <b>kozecafedvo@gmail.com</b></p>
-                        <p>Connect with us on Facebook at <b>Koze Cafe Davao</b> for the latest updates and special offers.</p>
+  <section id="contactus" class="contact section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 d-flex flex-column align-items-center">
+                <div class="section-header text-center pb-5">
+                    <h2>Contact Us</h2>
+
+                    <!-- Facebook Icon and Text -->
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <a href="https://www.facebook.com/kozecafe" target="_blank">
+                            <img src="assets/pictures/facebook.svg" width="20px" alt="Facebook">
+                        </a>
+                        <span class="mt-2">Koze Cafe Davao</span>
                     </div>
+
+                    <!-- Telephone Icon and Text -->
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <a href="tel:09054693991">
+                            <img src="assets/pictures/telephone-fill.svg" width="20px" alt="Telephone">
+                        </a>
+                        <span class="mt-2">0905 469 3991</span>
+                    </div>
+
+                    <!-- Email Icon and Text -->
+                    <div class="d-flex flex-column align-items-center">
+                        <a href="mailto:kozecafedvo@gmail.com">
+                            <img src="assets/pictures/envelope-fill.svg" width="20px" alt="Email">
+                        </a>
+                        <span class="mt-2">kozecafedvo@gmail.com</span>
+                    </div>
+
                 </div>
             </div>
         </div>
-      </section>
+    </div>
+</section>
+
+
+
+
+
+
 
 
     <!--- footer -->

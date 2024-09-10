@@ -1,6 +1,11 @@
 /* Custom Navbar Style with 40% Opacity */
 * {
-    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
 }
 
 body {
