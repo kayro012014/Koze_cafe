@@ -7,6 +7,8 @@
     <title>Koze Cafe</title>
 
     <!-- Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Q5T1XwooxJrrH5EYCGJNLsAxZ8HD/z6cAF0b1vXpVV4L9L4soJqaYPzXj6W3urJb" crossorigin="anonymous">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -147,6 +149,18 @@
             </div>
         </section>
 
+            <hr style="
+                height: 2px; 
+                border: none; 
+                background-color: gray; 
+                width: 80%; 
+                margin: 20px auto; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            ">
+
+
+
+
         <!--- amenities Section --->
 
                  <section id="amenities" class="amenities section-padding">
@@ -200,6 +214,16 @@
                 </div>
             </div>
         </section>
+    
+            <hr style="
+                height: 2px; 
+                border: none; 
+                background-color: gray; 
+                width: 80%; 
+                margin: 20px auto; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            ">
+
 
       <!--- Contact -->
   <section id="contactus" class="contact section-padding">
@@ -207,9 +231,9 @@
         <div class="row justify-content-center">
             <div class="col-md-4 d-flex flex-column align-items-center">
                 <div class="section-header text-center pb-5">
-                    <h2>Contact Us</h2>
+                   <div class="contact-info">
+                    <h2 style="text-align: center; text-decoration: underline;">Contact Us</h2>
 
-                    <!-- Facebook Icon and Text -->
                     <div class="d-flex flex-column align-items-center mb-3">
                         <a href="https://www.facebook.com/kozecafe" target="_blank">
                             <img src="assets/pictures/facebook.svg" width="20px" alt="Facebook">
@@ -217,7 +241,6 @@
                         <span class="mt-2">Koze Cafe Davao</span>
                     </div>
 
-                    <!-- Telephone Icon and Text -->
                     <div class="d-flex flex-column align-items-center mb-3">
                         <a href="tel:09054693991">
                             <img src="assets/pictures/telephone-fill.svg" width="20px" alt="Telephone">
@@ -225,13 +248,14 @@
                         <span class="mt-2">0905 469 3991</span>
                     </div>
 
-                    <!-- Email Icon and Text -->
                     <div class="d-flex flex-column align-items-center">
                         <a href="mailto:kozecafedvo@gmail.com">
                             <img src="assets/pictures/envelope-fill.svg" width="20px" alt="Email">
                         </a>
                         <span class="mt-2">kozecafedvo@gmail.com</span>
                     </div>
+                </div>
+
 
                 </div>
             </div>
@@ -257,7 +281,7 @@
 
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-1fRBx07U5OELlzWTzNljESrcpbLGd22AKQwEp+Zg4yB5FFLRkIkJmc6HlXK6o9j5" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Q5T1XwooxJrrH5EYCGJNLsAxZ8HD/z6cAF0b1vXpVV4L9L4soJqaYPzXj6W3urJb" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-1fRBx07U5OELlzWTzNljESrcpbLGd22AKQwEp+Zg4yB5FFLRkIkJmc6HlXK6o9j5" crossorigin="anonymous"></script>
 
