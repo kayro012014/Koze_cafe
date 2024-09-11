@@ -18,8 +18,9 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light-violet fixed-top">
+        
         <div class="container">
-            <a class="navbar-brand" href="#" style="color: black; font-weight: bold">Koze Cafe</a>
+            <a class="navbar-brand" href="#" style="color: rgb(255, 255, 255); font-weight: bold">KOZE CAFE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="material-symbols-outlined">
                 pets
@@ -44,9 +45,42 @@
                 </ul>
             </div>
         </div>
+         <header id="logre">  <div class="flex lg:justify-center lg:col-start-2">
+                            
+                        </div>
+                        @if (Route::has('login'))
+                            <nav class="-mx-3 flex flex-1 justify-start">
+                                @auth
+                                    <a
+                                        href="{{ url('/dashboard') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Dashboard
+                                    </a>
+                                @else
+                                   <a
+                                        href="{{ route('login') }}"
+                                        class="btn btn-light-purple"
+                                    >
+                                        Log in
+                                    </a>
+
+
+                                    @if (Route::has('register'))
+                                        <a
+                                            href="{{ route('register') }}"
+                                            class="btn btn-light-purple"
+                                        >
+                                            Register
+                                        </a>
+                                    @endif
+                                @endauth
+                            </nav>
+                        @endif</header>
     </nav>
 
     <div id="carouselExampleCaptions" class="carousel slide">
+        
         <div class="carousel-indicators" id="aboutus">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -54,21 +88,21 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/pictures/background(landing).jpg" class="d-block w-100" alt="Please Like and Follow Koze Cafe">
+                <img src="assets/pictures/landingpage.jpg" class="d-block w-100" alt="Please Like and Follow Koze Cafe">
                 <div class="carousel-caption ">
                     <h5>Cozy Escapes with Coffee and Cat</h5>
                     <p>Koze Cafe offers a cozy escape with delightful coffee and charming cats, creating the perfect blend of warmth and relaxation. Enjoy a purrfectly soothing experience with every visit.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="assets/pictures/background2.jpg" class="d-block w-100" alt="Please Like and Follow Koze Cafe">
+                <img src="assets/pictures/catbackground2.jpg" class="d-block w-100" alt="Please Like and Follow Koze Cafe">
                 <div class="carousel-caption ">
                     <h5>Sip, Relax, and Purr</h5>
                     <p>Indulge in our delicious coffee while being serenaded by the soft purrs of our resident cats. Your perfect relaxation spot awaits!</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="assets/pictures/background3.jpg" class="d-block w-100" alt="Please Like and Follow Koze Cafe">
+                <img src="assets/pictures/catbackground3.jpg" class="d-block w-100" alt="Please Like and Follow Koze Cafe">
                 <div class="carousel-caption ">
                     <h5>Warm Drinks and Cat Cuddles</h5>
                     <p>Sip on your favorite beverage while enjoying the comforting presence of our affectionate cats. It’s the perfect spot for relaxation and feline fun.</p>
