@@ -9,41 +9,55 @@
 
     <title>Admin</title>
     <style>
-        
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Main content wrapper to take full viewport height */
         #main-content {
             display: flex;
-            height: calc(100vh - 56px); 
-            overflow: hidden; 
+            height: calc(100vh - 56px); /* Adjust based on the height of your top bar */
+            overflow: hidden; /* Prevent scrolling in the main content wrapper */
         }
+
+        /* Sidebar styling */
         #dashboard-menu {
-            width: 250px; 
-            background-color: #343a40; 
-            color: #fff;
+            width: 250px; /* Adjust the width as needed */
+            background-color: #343a40; /* Original dark background color for sidebar */
+            color: #fff; /* Text color */
             display: flex;
             flex-direction: column;
-            min-height: 100vh; 
-            overflow-y: auto; 
+            min-height: 100vh; /* Ensure the sidebar takes full height */
+            overflow-y: auto; /* Allow scrolling if content overflows */
         }
 
-
+        /* Content area styling */
         .content-area {
             flex-grow: 1;
-            background-color: #f8f9fa; 
-            overflow-y: auto; 
+            background-color: #f8f9fa; /* Background color for content area */
+            overflow-y: auto; /* Allow scrolling if content overflows */
         }
 
         .nav-link {
-            padding: 15px 25px; 
+            padding: 10px 15px; /* Adjust padding for better spacing */
         }
     </style>
 </head>
 <body>
-    <!-- Top bar -->
-    <div class="container-fluid bg-dark text-light p-3 d-flex align-items-center justify-content-between sticky-top">
-        <h3 class="mb-0">Koze Cafe</h3>
-        <a href="logout.php" class="btn btn-light btn-sm">LOG OUT</a>
-    </div>
+        <!-- Top bar -->
+        <div class="container-fluid bg-dark text-light p-3 d-flex align-items-center justify-content-between sticky-top">
+            <h3 class="mb-0">Koze Cafe</h3>
 
+            <!-- Logout Form -->
+            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                @csrf
+                <button type="submit" class="btn btn-light btn-sm">LOG OUT</button>
+            </form>
+        </div>
+
+
+    <!-- Main Content Wrapper -->
     <div id="main-content">
         <!-- Sidebar -->
         <div id="dashboard-menu">
@@ -59,16 +73,22 @@
                                 <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="users.php">Products</a>
+                                <a class="nav-link text-white" href="users.php">Users</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="user_queries.php">Inventory</a>
+                                <a class="nav-link text-white" href="user_queries.php">User Queries</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="rooms.php">Staffs</a>
+                                <a class="nav-link text-white" href="rooms.php">Rooms</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="carousel.php">Reports</a>
+                                <a class="nav-link text-white" href="features_facilities.php">Features & Facilities</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="carousel.php">Carousel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="settings.php">Settings</a>
                             </li>
                         </ul>
                     </div>
@@ -76,7 +96,10 @@
             </nav>
         </div>
 
-   
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Main content goes here -->
+        </div>
     </div>
 </body>
 </html>
