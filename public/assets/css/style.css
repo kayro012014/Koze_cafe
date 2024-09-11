@@ -9,7 +9,38 @@
 }
 
 body {
-    background: rgb(241, 208, 241);
+    background: rgb(235, 231, 226);
+}
+/* Center align the contact section */
+.contact-info {
+    text-align: center;
+}
+
+/* Add some margin for spacing */
+.contact-info div {
+    margin-bottom: 20px;
+}
+
+/* Center the text inside each contact info block */
+.contact-info span {
+    display: block;
+    margin-top: 8px;
+}
+
+.btn-light-purple {
+    background-color: #bd74ce;
+    /* Light purple color */
+    color: #fff;
+    /* Text color */
+    border: none;
+    /* Remove border */
+}
+
+.btn-light-purple:hover {
+    background-color: #c6a1d0;
+    /* Slightly darker on hover */
+    color: #fff;
+    /* Text color */
 }
 
 .navbar-toggler {
@@ -83,14 +114,14 @@ body {
 }
 
 .carousel-caption {
-    bottom: 370px;
+    bottom: 100px;
 }
 
 .carousel-caption h5 {
     font-size: 45px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 .carousel-caption p {
@@ -176,6 +207,13 @@ body {
     .navbar-nav {
         text-align: center;
     }
+
+    .cat-img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-bottom: 50%;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -217,6 +255,14 @@ body {
         height: calc(100vh - 20px);
         min-height: 250px;
     }
+
+    .cat-img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-bottom: 50%;
+    }
+
 }
 
 .about-text p {
@@ -232,7 +278,8 @@ body {
 
 .cat-img img {
     position: absolute;
-    border: 8px solid purple;
+    border: 8px solid #F0E68C;
+    border-radius: 5%;
     object-fit: cover;
     transition: all 0.3s ease;
 }
