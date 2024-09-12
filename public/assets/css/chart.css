@@ -1,0 +1,13 @@
+.chart-container {
+    /* Set the container size to 50% of its original size */
+    width: 30%;
+    margin: 0 auto;
+    /* Center the container */
+}
+
+.chart-container canvas {
+    width: 90% !important;
+    /* Make the canvas take the full width of its container */
+    height: auto !important;
+    /* Maintain aspect ratio */
+}

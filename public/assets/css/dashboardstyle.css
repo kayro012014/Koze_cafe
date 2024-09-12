@@ -1,0 +1,56 @@
+.custom-bg {
+    background: #834d9b;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #d04ed6, #834d9b);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #d04ed6, #834d9b);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: double rgb(0, 0, 0);
+}
+
+.custom-btn {
+    background-color: rgb(219, 219, 219);
+
+}
+
+.custom-btn:hover {
+    background-color: rgb(207, 55, 86);
+    border: double rgb(0, 0, 0);
+    color: white;
+}
+
+.custom-btn:active {
+    background-color: rgb(181, 93, 29);
+    border: double rgb(223, 28, 28);
+    color: rgb(0, 0, 0);
+}
+
+.custom-nav li {
+    border-top: solid 1px black;
+
+}
+
+.custom-nav li:hover {
+    border-top: solid 1px black;
+    background-color: #40075a;
+}
+
+.custom-footer {
+    z-index: 1;
+    background-color: #8f769b;
+}
+
+/* Ensure content doesn't overlap the footer */
+.wrapper {
+    min-height: calc(100vh - 100px);
+    /* Adjust according to footer height */
+    padding-bottom: 50px;
+    /* Footer height */
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1030;
+}

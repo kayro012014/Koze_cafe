@@ -10,9 +10,9 @@ use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
-    public function dashboard(): ViewContract|Factory
+    public function overview(): ViewContract|Factory
     {
-        return view('admin.dashboard');
+        return view('admin.overview');
     }
 
     public function products(): ViewContract|Factory
@@ -29,4 +29,9 @@ class DashboardController extends Controller
     {
         return view('admin.reports');
     }
+    public function pos(): ViewContract|Factory
+    {
+        return view('admin.pos');
+    }
 }
+
