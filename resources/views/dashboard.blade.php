@@ -14,33 +14,33 @@
             margin: 0;
         }
 
-        /* Main content wrapper to take full viewport height */
+        
         #main-content {
             display: flex;
-            height: calc(100vh - 56px); /* Adjust based on the height of your top bar */
-            overflow: hidden; /* Prevent scrolling in the main content wrapper */
+            height: calc(100vh - 56px); 
+            overflow: hidden; 
         }
 
         /* Sidebar styling */
         #dashboard-menu {
-            width: 250px; /* Adjust the width as needed */
-            background-color: #343a40; /* Original dark background color for sidebar */
-            color: #fff; /* Text color */
+            width: 250px; 
+            background-color: #343a40; 
+            color: #fff; 
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure the sidebar takes full height */
-            overflow-y: auto; /* Allow scrolling if content overflows */
+            min-height: 100vh; 
+            overflow-y: auto; 
         }
 
-        /* Content area styling */
+        
         .content-area {
             flex-grow: 1;
-            background-color: #f8f9fa; /* Background color for content area */
-            overflow-y: auto; /* Allow scrolling if content overflows */
+            background-color: #f8f9fa; 
+            overflow-y: auto; 
         }
 
         .nav-link {
-            padding: 10px 15px; /* Adjust padding for better spacing */
+            padding: 10px 15px; 
         }
     </style>
 </head>
@@ -89,7 +89,7 @@
 
         <!-- Content Area -->
       <div class="content-area">
-            @yield('content') <!-- This is where content from other views will be inserted -->
+            @yield('content') 
         </div>
     </div>
 </body>
