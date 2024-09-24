@@ -120,7 +120,215 @@
                                 <td>09/13/24</td>
                                 <td>3:00 PM</td>
                             </tr>
-                           
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Marinara</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Pasta</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Coffee</td>
+                                <td>Americano Hot</td>
+                                <td>Php 119.00</td>
+                                <td>1</td>
+                                <td>0%</td>
+                                <td>Php 119.00</td>
+                                <td>09/13/24</td>
+                                <td>3:00 PM</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
