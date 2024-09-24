@@ -1,308 +1,321 @@
 @extends('dashboard') <!-- Correct reference to the layout -->
+<style>
+    body {
+        background: linear-gradient(to right, #f0f4f8, #d1e1e5);
+        font-family: 'Arial', sans-serif;
+    }
+    .container {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+        justify-content: center;
+    }
+    .column {
+        padding: 8px;
+        box-sizing: border-box;
+        flex: 0 0 25%; /* Fixed width to ensure four images per row */
+        display: flex; /* Flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        margin-bottom: 16px; /* Space below each column */
+    }
+    .product-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px; /* Slightly rounded corners for a softer look */
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+        transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+        text-align: center;
+        width: 100%; /* Full width of the column */
+        height: 200px; /* Fixed height for uniformity */
+        position: relative; /* For absolute positioning of image */
+    }
+    .product-card img {
+        position: absolute; /* Positioning the image */
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        object-fit: cover; /* Cover the card while maintaining aspect ratio */
+        transition: transform 0.5s ease; /* Smooth zoom effect */
+    }
+    .product-card:hover {
+        transform: scale(1.05); /* Slightly enlarge on hover */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow on hover */
+    }
+    .product-card:hover img {
+        transform: scale(1.1); /* Zoom in image on hover */
+    }
+    .product-title {
+        padding: 10px;
+        font-size: 1.2em; /* Slightly larger font */
+        font-weight: bold;
+        color: #333;
+        position: absolute; /* Positioning for title */
+        bottom: 0; /* Align title to the bottom */
+        left: 0; /* Align title to the left */
+        right: 0; /* Stretch title to the right */
+        background: rgba(255, 255, 255, 0.7); /* Semi-transparent background for readability */
+        border-radius: 8px; /* Rounded corners for title background */
+        margin: 0; /* Remove default margin */
+    }
+    .filter-section, .image-buttons {
+        margin-bottom: 20px;
+    }
+    .btn-secondary {
+        margin-right: 5px;
+        background-color: #007bff;
+        color: #fff;
+    }
+    .btn-secondary:hover {
+        background-color: #0056b3;
+    }
+    .text-end {
+        margin-top: 20px;
+    }
+
+    /* Adjusted style for the search textbox */
+    .filter-section input[type="text"] {
+        width: 300px; /* Adjust the width as needed */
+    }
+    
+    .image-buttons button {
+        margin-left: 5px; /* Space between buttons */
+    }
+</style>
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
-    <title>Koze Cafe</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/sidebar.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/dashboardstyle.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
-</head>
+    <!-- Search and Filter Section -->
+    <div class="filter-section d-flex mb-4">
+        <input type="text" class="form-control me-2" placeholder="Search Products" aria-label="Search" style="width: 300px;"> <!-- Adjusted width -->
+        <button class="btn btn-primary" onclick="filterProducts()">Filter</button>
+    </div>
 
-<body>
-    <div class="wrapper">
-        <div class="main p-3">
-            <div class="text">
-                <h1>Orders</h1>
+    <!-- Category Buttons -->
+    <div id="category-buttons" class="mb-4 d-flex flex-wrap">
+        <!-- Category buttons will be dynamically inserted here -->
+    </div>
+
+    <!-- Add Product Button and Layout Buttons -->
+    <div class="d-flex justify-content-between mb-4">
+        <div>
+            <button class="btn btn-success" onclick="openModal()">+ADD PRODUCT</button>
+        </div>
+        <div class="image-buttons d-flex flex-wrap">
+            <div id="button-container" class="me-2">
+                <!-- Layout buttons will be dynamically inserted here -->
             </div>
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="card p-3">
-                            <div class="row mb-3 align-items-center">
-                                <div class="col-md-6">
-                                    <!-- Optional space for additional content -->
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Filters</h6>
-                                    <select class="form-select" id="categoryfilter">
-                                        <option value="">Category</option>
-                                        <option value="Coffee">Coffee</option>
-                                        <option value="Pasta">Pasta</option>
-                                        <option value="Rice Meal">Rice Meal</option>
-                                        <option value="Combo Meals w/ Rice Drink">Combo Meals w/ Rice Drink</option>
-                                        <option value="Pika-Pika">Pika-Pika</option>
-                                        <option value="Snacks">Snacks</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="table-responsive">
-                                <table id="tblDepartment" class="table table-bordered" style="background-color: #e6e6fa;">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Category Name</th>
-                                            <th>Product Name</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="inventoryTableBody">
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Pasta</td>
-                                            <td>Marinar</td>
-                                            <td>Php 190.00</td>
-                                            <td>
-                                                <div style="display: inline-flex; align-items: center; justify-content: center;">
-                                                    <button class="btn btn-secondary me-1" onclick="changeQuantity(this, -1)">-</button>
-                                                    <input type="number" class="form-control text-center" value="0" min="0" style="width: 50px; text-align: center; margin: 0;" readonly>
-                                                    <button class="btn btn-secondary ms-1" onclick="changeQuantity(this, 1)">+</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Snacks</td>
-                                            <td>Nachos</td>
-                                            <td>Php 135.00</td>
-                                            <td>
-                                                <div style="display: inline-flex; align-items: center; justify-content: center;">
-                                                    <button class="btn btn-secondary me-1" onclick="changeQuantity(this, -1)">-</button>
-                                                    <input type="number" class="form-control text-center" value="0" min="0" style="width: 50px; text-align: center; margin: 0;" readonly>
-                                                    <button class="btn btn-secondary ms-1" onclick="changeQuantity(this, 1)">+</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Coffee</td>
-                                            <td>Americano Hot</td>
-                                            <td>Php 119.00</td>
-                                            <td>
-                                                <div style="display: inline-flex; align-items: center; justify-content: center;">
-                                                    <button class="btn btn-secondary me-1" onclick="changeQuantity(this, -1)">-</button>
-                                                    <input type="number" class="form-control text-center" value="0" min="0" style="width: 50px; text-align: center; margin: 0;" readonly>
-                                                    <button class="btn btn-secondary ms-1" onclick="changeQuantity(this, 1)">+</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-3">
-                            <div class="row mb-4 align-items-center">
-                                <h4 style="font-weight:bold">Checkout</h4>
-                                    {{-- <div class="col-md-8">
-                                        <h6>Customer name</h6>
-                                    </div>
-                                    <div class="col-md-4 text-end">
-                                        <button type="button" class="btn btn-custom" id="edit-customer" style="border-radius: 7px; height: 2.3rem; border: none;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </div>
-                                    <div class="order-det">
-                                        <h5 class="order-item">Order * 1</h5>
-                                        <h6>Php 23.00</h6>
-                                    </div>
-                                    <div class="order-det">
-                                        <h5 class="order-item">Order * 1</h5>
-                                        <h6>Php 23.00</h6>
-                                    </div>
-                                    <div class="order-det">
-                                        <h5 class="order-item">Order * 1</h5>
-                                        <h6>Php 23.00</h6>
-                                    </div>
-                                </div> --}}
-                            <div class="card p-2">
-                                <div class="row mb-4 align-items-center">
-                                    <div class="order-det">
-                                        <h5 class="order-item">Discount</h5>
-                                        <h6>SN/PWD:</h6>
-                                    </div>
-                            <div class="card p-2">
-                                <div class="row mb-4 align-items-center">
-                                    <div class="order-det">
-                                        <h5 class="order-item">Subtotal</h5>
-                                        <h6>Php 69.00</h6>
-                                    </div>
-                                    <div class="order-det">
-                                        <h5 class="order-item">TOTAL</h5>
-                                        <h6>Php 69.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-4 align-items-center">
-                                <div class="col-md-8">
-                                    <button type="button" class="btn btn-success" id="checkout-button" style="border-radius: 7px; height: 2.3rem; border: none;" data-bs-toggle="modal" data-bs-target="#checkOutBackdrop">
-                                        <i class="bi bi-cart"></i> Checkout
-                                    </button>
-                                </div>
-                                <div class="col-md-4 text-end">
-                                    <button type="button" class="btn btn-danger" onclick="resetQuantities()">Reset</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <button class="btn btn-secondary" onclick="previousGroup()">Previous</button> <!-- Previous Button -->
+            <button class="btn btn-secondary" onclick="nextGroup()">Next</button>
+            <button class="btn btn-secondary" onclick="lastGroup()">Last</button>
         </div>
     </div>
 
-    {{-- <!-- MODAL FOR CUSTOMER -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Modal Structure -->
+    <div class="modal" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Customer Information</h1>
+                    <h5 class="modal-title" id="productModalLabel">Add Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="inventoryForm">
+                    <form id="productForm">
                         <div class="mb-3">
-                            <label for="custName" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control" id="custName" placeholder="Enter Customer name">
+                            <label for="categorySelect" class="form-label">What Category:</label>
+                            <select class="form-select" id="categorySelect" required>
+                                <option selected disabled>Select a category</option>
+                            </select>
                         </div>
                         <div class="mb-3">
-                            <label for="custPhone" class="form-label">Customer Phone</label>
-                            <input type="text" class="form-control" id="custPhone" placeholder="Enter Customer Phone">
+                            <label for="productImage" class="form-label">Upload Image:</label>
+                            <input type="file" class="form-control" id="productImage" accept="image/*" required>
                         </div>
                         <div class="mb-3">
-                            <label for="custAddress" class="form-label">Customer Address</label>
-                            <input type="text" class="form-control" id="custAddress" placeholder="Enter Customer Address">
+                            <label for="productName" class="form-label">Product Name:</label>
+                            <input type="text" class="form-control" id="productName" required>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveCustomerInfo">Save</button>
+                    <button type="button" class="btn btn-primary" onclick="addProduct()">Add Product</button>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    <!-- MODAL FOR CHECK OUT -->
-    <div class="modal fade" id="checkOutBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="checkOutBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="checkOutBackdropLabel">Cash Sales Invoice</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img src="{{ URL('assets/pictures/Logo.svg') }}" alt="Company Logo" class="img-fluid mb-3" style="max-width: 100px; border-radius: 50%;">
-                        <h3 class="title_bod">Koze Cafe</h3>
-                        <p>J BUILDING JMC COMPOUND,KM 4, MC ARTHUR HIGHWAY, BRGY MATINA CROSSING </p>
-                    </div>
-                    <p>---------------------------------------------------------------------------------------------------------------------------</p>
-                    <div class="modal-body text-center">
-                        <h3 class="title_bod">Recipt Information</h3>
-                        <p>INV#:</p>
-                  
-                    </div>
-                    <div class="modal-body">
-                      
-                            
-                            <p><strong>Date:</strong> <span id="receiptDate">09/12/2024</span></p>
-                            <hr>
-                            <h3 class="title_bod">Order Details</h3>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Item</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Discount</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="receiptTableBody">
-                                    <tr>
-                                        <td>Americano Hot</td>
-                                        <td>1</td>
-                                        <td>Php 119.00</td>
-                                        <td>0</td>
-                                        <td>Php 119.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <hr>
-                            <p><strong>Payment Method:</strong> <span id="payMeth"> Cash</span></p>
-                            <p><strong>Total Amount:</strong> <span id="receiptTotal"> Php 119.00</span></p>
-                            
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success" id="printReceipt">Print Receipt</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/style.js') }}"></script>
-    <script src="{{ asset('assets/js/status.js') }}"></script>
-    <script src="{{ asset('assets/js/search.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            // Initialize DataTable
-            $('#tblDepartment').DataTable();
+    <!-- Image Display Section -->
+    <div class="row" id="image-container">
+        <!-- Images will be dynamically inserted here -->
+    </div>
 
-            // Save Customer Info
-            $('#saveCustomerInfo').click(function () {
-                var customerName = $('#custName').val();
-                var customerPhone = $('#custPhone').val();
-                var customerAddress = $('#custAddress').val();
-                Swal.fire({
-                    title: 'Customer Info Saved!',
-                    text: 'Name: ' + customerName + '\nPhone: ' + customerPhone + '\nAddress: ' + customerAddress,
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                });
-                $('#staticBackdrop').modal('hide');
-            });
+    <!-- Single Edit Button -->
+    <div class="text-end mb-4">
+        <a href="{{ route('products') }}" class="btn btn-warning">EDIT PRODUCTS</a>
+    </div>
+</div>
 
-            // Confirm Checkout
-            $('#confirmCheckout').click(function () {
-                Swal.fire({
-                    title: 'Checkout Confirmed!',
-                    text: 'Thank you for your purchase!',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                });
-                $('#checkOutBackdrop').modal('hide');
-            });
+<script>
+    const products = [
+        { image: "/assets/pictures/espresso.jpg", title: "ESPRESSO", category: "COFFEE" },
+        { image: "/assets/pictures/americano.jpg", title: "AMERICANO", category: "Category 2" },
+        { image: "/assets/pictures/capuccino.jpeg", title: "CAPUCCINO", category: "COFFEE" },
+        { image: "/assets/pictures/cafe_latte.jpg", title: "CAFE LATTE", category: "Category 3" },
+        { image: "/assets/pictures/vanilla.jpg", title: "VANILLA", category: "Category 2" },
+        { image: "/assets/pictures/spanish_latte.jpg", title: "SPANISH LATTE", category: "COFFEE" },
+        { image: "/assets/pictures/caramel_macchiato.jpg", title: "CARAMEL MACCHIATO", category: "Category 3" },
+        { image: "/assets/pictures/cafe_mocha.jpg", title: "CAFE MOCHA", category: "Category 2" },
+        { image: "/assets/pictures/white_mocha.jpg", title: "WHITE MOCHA", category: "Category 2" },
+    ];
+
+    const buttonGroups = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8]
+    ];
+    let currentGroupIndex = 0;
+
+    function renderCategoryButtons() {
+        const categories = [...new Set(products.map(product => product.category))];
+        const buttonContainer = document.getElementById('category-buttons');
+        buttonContainer.innerHTML = ''; // Clear existing buttons
+
+        categories.forEach(category => {
+            const button = document.createElement('button');
+            button.className = 'btn btn-secondary me-2';
+            button.textContent = category;
+            button.onclick = () => filterProducts(category); // Set onclick to filter by category
+            buttonContainer.appendChild(button);
+        });
+    }
+
+    function filterProducts(selectedCategory) {
+        const filteredProducts = selectedCategory
+            ? products.filter(product => product.category === selectedCategory)
+            : products;
+        displayImages(filteredProducts);
+    }
+
+    function setLayout(layout) {
+        displayImages();
+    }
+
+    function displayImages(filteredProducts = products) {
+        const container = document.getElementById('image-container');
+        container.innerHTML = ''; // Clear existing images
+
+        filteredProducts.forEach(product => {
+            const column = document.createElement('div');
+            column.className = 'column';
+
+            const card = document.createElement('div');
+            card.className = 'product-card';
+
+            const img = document.createElement('img');
+            img.src = product.image;
+            img.alt = product.title;
+
+            const title = document.createElement('div');
+            title.className = 'product-title';
+            title.textContent = product.title;
+
+            card.appendChild(img);
+            card.appendChild(title);
+            column.appendChild(card);
+            container.appendChild(column);
         });
 
-        function changeQuantity(button, change) {
-            var input = $(button).siblings('input');
-            var currentValue = parseInt(input.val());
-            var newValue = currentValue + change;
-            if (newValue >= 0) {
-                input.val(newValue);
-            }
-        }
+        // If there are fewer products than columns, fill empty columns
+        const emptyColumns = 4 - (filteredProducts.length % 4);
+        for (let i = 0; i < emptyColumns; i++) {
+            const column = document.createElement('div');
+            column.className = 'column';
 
-        function resetQuantities() {
-            $('input[type="number"]').val(0);
-        }
-    </script>
-</body>
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.style.backgroundColor = 'transparent'; // Optional: Make empty cards transparent
 
-</html>
-@endsection
+            column.appendChild(card);
+            container.appendChild(column);
+        }
+    }
+
+    function renderButtons() {
+        const buttonContainer = document.getElementById('button-container');
+        buttonContainer.innerHTML = ''; // Clear existing buttons
+        const currentGroup = buttonGroups[currentGroupIndex];
+
+        currentGroup.forEach(index => {
+            const button = document.createElement('button');
+            button.className = 'btn btn-secondary';
+            button.textContent = index;
+            button.onclick = () => setLayout(index);
+            buttonContainer.appendChild(button);
+        });
+    }
+
+    function nextGroup() {
+        if (currentGroupIndex < buttonGroups.length - 1) {
+            currentGroupIndex++;
+            renderButtons();
+        }
+    }
+
+    function previousGroup() {
+        if (currentGroupIndex > 0) {
+            currentGroupIndex--;
+            renderButtons();
+        }
+    }
+
+    function lastGroup() {
+        currentGroupIndex = buttonGroups.length - 1;
+        renderButtons();
+    }
+
+    function openModal() {
+        const modal = new bootstrap.Modal(document.getElementById('productModal'));
+        modal.show();
+        populateCategories(); // Populate the category dropdown in modal
+    }
+
+    function addProduct() {
+    const category = document.getElementById('categorySelect').value;
+    const productName = document.getElementById('productName').value.toUpperCase(); // Convert to uppercase
+    const imageInput = document.getElementById('productImage');
+    const file = imageInput.files[0];
+
+    if (category && productName && file) {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            const newProduct = {
+                image: reader.result,
+                title: productName,
+                category: category
+            };
+            products.push(newProduct);
+            displayImages(); // Re-display images with the new product
+            const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
+            modal.hide();
+            document.getElementById('productForm').reset();
+            renderCategoryButtons(); // Update category buttons
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+    // Initial setup
+    renderCategoryButtons();
+    displayImages();
+    renderButtons();
+</script>
+@endsection 
