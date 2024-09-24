@@ -28,9 +28,9 @@
         /* Sidebar styling */
         #dashboard-menu {
             width: 250px;
-            background: #834d9b;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #d04ed6, #834d9b);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #d04ed6, #834d9b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: #d2a6e6;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #d04ed6, #cc99e2);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #e390e7, #d093eb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             border-right: double rgb(0, 0, 0);
             color: #fff;
             display: flex;
@@ -60,7 +60,7 @@
 <body>
     <!-- Top bar -->
     <div class="container-fluid custom-bg text-light p-3 d-flex align-items-center justify-content-between sticky-top">
-        <h3 class="mb-0"><span style="color: black">Koze Cafe</span></h3>
+        <h3 class="mb-0"><span style="color: rgb(255, 255, 255)">KOZE CAFE</span></h3>
 
         <!-- Logout Form -->
         <form method="POST" action="{{ route('logout') }}" style="display: inline;">
@@ -86,10 +86,10 @@
                                 <a class="nav-link text-white" href="{{ route('overview') }}">OverView</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('products') }}">Products</a>
+                                <a class="nav-link text-white" href="{{ route('transaction') }}">Transaction</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('pos') }}">POS</a>
+                                <a class="nav-link text-white" href="{{ route('products') }}">Products</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inventory') }}">Inventory</a>
