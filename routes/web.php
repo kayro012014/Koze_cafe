@@ -3,21 +3,26 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\InventoryController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/overview', [DashboardController::class, 'overview'])->name('overview');
-    Route::get('/admin/products', [DashboardController::class, 'products'])->name('products');
+
+    Route::post('/admin/store_inventory', [DashboardController::class, 'store'])->name('store_inventory');
+
+    Route::get('/admin/transaction', [DashboardController::class, 'transaction'])->name('transaction');
     Route::get('/admin/inventory', [DashboardController::class, 'inventory'])->name('inventory');
     Route::get('/admin/reports', [DashboardController::class, 'reports'])->name('reports');
-    Route::get('/admin/pos', [DashboardController::class, 'pos'])->name('pos');
-    
+    Route::get('/admin/products', [DashboardController::class, 'products'])->name('products');
+    Route::post('/admin/store_inventory', [DashboardController::class, 'store_inventory'])->name('store_inventory');
 });
-Route::get('/dashboard', function () {
+Route::get('/dashboard', action: function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
