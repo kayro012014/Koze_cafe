@@ -8,81 +8,59 @@
 
     <!-- Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Q5T1XwooxJrrH5EYCGJNLsAxZ8HD/z6cAF0b1vXpVV4L9L4soJqaYPzXj6W3urJb" crossorigin="anonymous">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        /* Volume control styles */
+        .volume-control {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .volume-slider {
+            margin-left: 10px;
+            width: 150px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light-violet fixed-top">
-        
         <div class="container">
             <a class="navbar-brand" href="#" style="color: rgb(255, 255, 255); font-weight: bold">KOZE CAFE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="material-symbols-outlined">
-                pets
-                </span>
+                <span class="material-symbols-outlined">pets</span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 " >
-                    <li class="nav-item">
-                        <a class="nav-link px-lg-3" href="#carouselExampleCaptions">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-lg-3" href="#aboutus">ABOUT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-lg-3" href="#amenities">AMENITIES</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link px-lg-3" href="#contactus">CONTACT US</a>
-                    </li>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#carouselExampleCaptions">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#aboutus">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#amenities">AMENITIES</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#contactus">CONTACT US</a></li>
                 </ul>
             </div>
         </div>
-         <header id="logre">  <div class="flex lg:justify-center lg:col-start-2">
-                            
-                        </div>
-                        @if (Route::has('login'))
-                            <nav class="-mx-3 flex flex-1 justify-start">
-                                @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                @else
-                                   <a
-                                        href="{{ route('login') }}"
-                                        class="btn btn-light-purple"
-                                    >
-                                        Log in
-                                    </a>
-
-
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="btn btn-light-purple"
-                                        >
-                                            Register
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
-                        @endif</header>
+        <header id="logre">
+            <div class="flex lg:justify-center lg:col-start-2"></div>
+            @if (Route::has('login'))
+                <nav class="-mx-3 flex flex-1 justify-start">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-sm btn-light-purple">Log in</a>
+                      
+                    @endauth
+                </nav>
+            @endif
+        </header>
     </nav>
 
     <div id="carouselExampleCaptions" class="carousel slide">
-        
         <div class="carousel-indicators" id="aboutus">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -90,13 +68,22 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/pictures/landingpage.jpg" class="d-block w-100" alt="Please Like and Follow Koze Cafe">
-                <div class="carousel-caption ">
+                <video id="carouselVideo" class="d-block w-100" autoplay muted loop>
+                    <source src="assets/pictures/KozeVid.mp4" type="video/mp4">
+                    <!-- Fallback content if video cannot be played -->
+                    Your browser does not support the video tag.
+                </video>
+                <div class="carousel-caption">
                     <h5>Cozy Escapes with Coffee and Cat</h5>
                     <p>Koze Cafe offers a cozy escape with delightful coffee and charming cats, creating the perfect blend of warmth and relaxation. Enjoy a purrfectly soothing experience with every visit.</p>
                 </div>
+                <!-- Volume Control -->
+                <div class="volume-control">
+                    <label for="volumeSlider">Volume:</label>
+                    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0" />
+                </div>
             </div>
-            <div class="carousel-item">
+             <div class="carousel-item">
                 <img src="assets/pictures/catbackground2.jpg" class="d-block w-100" alt="Please Like and Follow Koze Cafe">
                 <div class="carousel-caption ">
                     <h5>Sip, Relax, and Purr</h5>
@@ -121,9 +108,8 @@
         </button>
     </div>
 
-
-     <!-- about services --> 
-        <section id="#about" class="about section-padding">
+    <!-- About services -->
+    <section id="#about" class="about section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-12">
@@ -149,7 +135,7 @@
             </div>
         </section>
 
-            <hr style="
+           <hr style="
                 height: 2px; 
                 border: none; 
                 background-color: gray; 
@@ -159,10 +145,8 @@
             ">
 
 
-
-
-        <!--- amenities Section --->
-
+    <!-- Amenities Section -->
+   
                  <section id="amenities" class="amenities section-padding">
             <div class="container">
                 <div class="row">
@@ -225,66 +209,49 @@
             ">
 
 
-      <!--- Contact -->
-  <section id="contactus" class="contact section-padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4 d-flex flex-column align-items-center">
-                <div class="section-header text-center pb-5">
-                   <div class="contact-info">
-                    <h2 style="text-align: center; text-decoration: underline;">Contact Us</h2>
 
-                    <div class="d-flex flex-column align-items-center mb-3">
-                        <a href="https://www.facebook.com/kozecafe" target="_blank">
-                            <img src="assets/pictures/facebook.svg" width="20px" alt="Facebook">
-                        </a>
-                        <span class="mt-2">Koze Cafe Davao</span>
+    <!-- Contact -->
+    <section id="contactus" class="contact section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 d-flex flex-column align-items-center">
+                    <div class="section-header text-center pb-5">
+                        <div class="contact-info">
+                            <h2 style="text-align: center; text-decoration: underline;">Contact Us</h2>
+                            <div class="d-flex flex-column align-items-center mb-3">
+                                <a href="https://www.facebook.com/kozecafe" target="_blank">
+                                    <img src="assets/pictures/facebook.svg" width="20px" alt="Facebook">
+                                </a>
+                                <span class="mt-2">Koze Cafe Davao</span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center mb-3">
+                                <a href="tel:09054693991">
+                                    <img src="assets/pictures/telephone-fill.svg" width="20px" alt="Telephone">
+                                </a>
+                                <span class="mt-2">0905 469 3991</span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                                <a href="mailto:kozecafedvo@gmail.com">
+                                    <img src="assets/pictures/envelope-fill.svg" width="20px" alt="Email">
+                                </a>
+                                <span class="mt-2">kozecafedvo@gmail.com</span>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="d-flex flex-column align-items-center mb-3">
-                        <a href="tel:09054693991">
-                            <img src="assets/pictures/telephone-fill.svg" width="20px" alt="Telephone">
-                        </a>
-                        <span class="mt-2">0905 469 3991</span>
-                    </div>
-
-                    <div class="d-flex flex-column align-items-center">
-                        <a href="mailto:kozecafedvo@gmail.com">
-                            <img src="assets/pictures/envelope-fill.svg" width="20px" alt="Email">
-                        </a>
-                        <span class="mt-2">kozecafedvo@gmail.com</span>
-                    </div>
-                </div>
-
-
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-
-
-
-
-
-
-    <!--- footer -->
+    <!-- Footer -->
     <footer class="bg-dark p-2 text-center">
         <div class="container">
             <p class="text-white">All Rights Reserved Koze Cafe</p>
         </div>
     </footer>
 
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-1fRBx07U5OELlzWTzNljESrcpbLGd22AKQwEp+Zg4yB5FFLRkIkJmc6HlXK6o9j5" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Q5T1XwooxJrrH5EYCGJNLsAxZ8HD/z6cAF0b1vXpVV4L9L4soJqaYPzXj6W3urJb" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-1fRBx07U5OELlzWTzNljESrcpbLGd22AKQwEp+Zg4yB5FFLRkIkJmc6HlXK6o9j5" crossorigin="anonymous"></script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-1fRBx07U5OELlzWTzNljESrcpbLGd22AKQwEp+Zg4yB5FFLRkIkJmc6HlXK6o9j5" crossorigin="anonymous"></script>
     <script>
         document.addEventListener('click', function (e) {
             if (!e.target.closest('.navbar-collapse') && !e.target.closest('.navbar-toggler')) {
@@ -305,6 +272,19 @@
                         bsCollapse.hide();
                     }, 2000); // Close the navbar after 2 seconds
                 }
+            });
+        });
+
+        // Volume control script
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('carouselVideo');
+            var volumeSlider = document.getElementById('volumeSlider');
+
+            // Set initial volume
+            video.volume = volumeSlider.value;
+
+            volumeSlider.addEventListener('input', function() {
+                video.volume = this.value;
             });
         });
     </script>
